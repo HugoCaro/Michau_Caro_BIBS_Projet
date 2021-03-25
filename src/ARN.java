@@ -10,4 +10,11 @@ public class ARN {
         this.seq=seq;
         this.struct=struct;
     }
+
+    public Boolean compareStruct(ARN b){
+        return this.struct.equals(b.struct);
+    }
+    public Boolean compareSeq(ARN b){
+        return this.seq.equals(b.seq) && this.struct.equals(b.struct);
+    }
 }
