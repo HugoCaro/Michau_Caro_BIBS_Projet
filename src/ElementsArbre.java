@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class ElementsArbre extends Arbre {
     private String valeur;
-    private ElementsArbre precedent;
+    public ElementsArbre precedent;
     public ArrayList<ElementsArbre> suivant;
 
     public ElementsArbre(){
@@ -16,6 +16,10 @@ public class ElementsArbre extends Arbre {
         this.valeur = valeur;
         this.precedent = precedent;
         this.suivant = suivant;
+    }
+
+    private void add(ElementsArbre ele) {
+        this.suivant.add(ele);
     }
 
 
