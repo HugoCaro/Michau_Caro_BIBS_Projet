@@ -16,6 +16,10 @@ public class ARN {
         }
     }
 
+    public String returnStruct(){
+        return this.struct;
+    }
+
     public Boolean compareStruct(ARN b){
         return this.struct.equals(b.struct);
     }
