@@ -1,26 +1,35 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class WindowStart {
 
+    private JFrame frameStart = new JFrame ("Saisi ARN");
+    private JButton buttonAdd = new JButton("Ajout de la séquence");
+    private JPanel panARN = new JPanel();
+    private JTextArea txtARN= new JTextArea("Entrer une \n\tséquence ARN");;
+    private JLabel labARN= new JLabel("Séquence : ");
+    private JPanel panStrc= new JPanel();
+    private JTextArea txtStrc= new JTextArea("Entrer une \n\tstructure ARN");;
+    private JLabel labStrc= new JLabel("Strcuture : ");
+
     public WindowStart() {
 
-        JFrame f = new JFrame("");
-        f.setSize(300, 300);
-        JPanel pannel = new JPanel();
+        this.panARN.setLayout(new GridLayout(1,2));
+        this.panARN.add(this.labARN);
+        this.panARN.add(this.txtARN);
 
-        JTextArea  textArea1 = new JTextArea ("Entrer une \nséquence ARN");
-        JTextArea  textArea2 = new JTextArea ("Entrer une structure ARN");
+        this.panStrc.setLayout(new GridLayout(1,2));
+        this.panStrc.add(this.labStrc);
+        this.panStrc.add(this.txtStrc,1);
 
-        pannel.add(textArea1);
-        pannel.add(textArea2);
-        f.getContentPane().add(pannel);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.setVisible(true);
+        this.frameStart.setLayout(new GridLayout(3,1));
+        this.frameStart.add(this.panARN);
+        this.frameStart.add(this.panStrc,1);
+        this.frameStart.setSize(400,300);
+        this.frameStart.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.frameStart.setVisible(true);
     }
 
-    public JPanel createTextFieldPanel() {
-        JTextField textField=new JTextField();
-        return createForm("TextField",textField);
-    }
 }
