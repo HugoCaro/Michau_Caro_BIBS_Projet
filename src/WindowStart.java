@@ -53,6 +53,11 @@ public class WindowStart {
                 System.out.println(nomARN);
                 System.out.println(seq);
                 System.out.println(strc);
+                ARN a = new ARN(seq,strc);
+                ARNnomme test = new ARNnomme(a,nomARN);
+                System.out.println(test.returnStruct());
+                System.out.println(test.returnSeq());
+                System.out.println(test.returnNom());
             }
         });
 
