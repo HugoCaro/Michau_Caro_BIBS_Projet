@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class ElementsArbre extends Arbre {
     private String valeur;
     private ElementsArbre precedent;
-    private ArrayList<ElementsArbre> suivant;
+    public ArrayList<ElementsArbre> suivant;
 
     public ElementsArbre(){
         this.valeur = "";

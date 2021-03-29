@@ -20,6 +20,10 @@ public class ARN {
         return this.struct;
     }
 
+    public String returnSeq(){
+        return this.seq;
+    }
+
     public Boolean compareStruct(ARN b){
         return this.struct.equals(b.struct);
     }
