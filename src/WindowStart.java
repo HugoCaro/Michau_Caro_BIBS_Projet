@@ -28,25 +28,28 @@ public class WindowStart {
         this.panNom.setLayout(new GridLayout(1,2));
         this.panNom.add(this.labNom);
         this.panNom.add(txtNom,1);
+        panNom.setBorder(BorderFactory.createLineBorder(Color.lightGray, 1));
 
         txtARN = this.txtARN;
         this.labARN.setHorizontalAlignment(SwingConstants.CENTER);
         this.panARN.setLayout(new GridLayout(1,2));
         this.panARN.add(this.labARN);
         this.panARN.add(txtARN,1);
+        panARN.setBorder(BorderFactory.createLineBorder(Color.lightGray, 1));
 
         txtStrc = this.txtStrc;
         this.labStrc.setHorizontalAlignment(SwingConstants.CENTER);
         this.panStrc.setLayout(new GridLayout(1,2));
         this.panStrc.add(this.labStrc);
         this.panStrc.add(txtStrc,1);
+        panStrc.setBorder(BorderFactory.createLineBorder(Color.lightGray, 1));
 
         this.buttonAdd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 String nomARN = txtNom.getText();
                 String seq = txtARN.getText().toUpperCase() ;
-                String strc = txtARN.getText().toUpperCase() ;
+                String strc = txtStrc.getText().toUpperCase() ;
                 System.out.println(nomARN);
                 System.out.println(seq);
                 System.out.println(strc);
@@ -58,7 +61,7 @@ public class WindowStart {
         this.frameStart.add(this.panARN);
         this.frameStart.add(this.panStrc);
         this.frameStart.add(this.buttonAdd);
-        this.frameStart.setSize(400,300);
+        this.frameStart.setSize(400,294);
         this.frameStart.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.frameStart.setVisible(true);
     }
