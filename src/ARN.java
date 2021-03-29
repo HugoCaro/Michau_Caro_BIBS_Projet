@@ -33,5 +33,7 @@ public class ARN {
         System.out.println(a.compareStruct(c));
         System.out.println(a.compareStruct(d));
         System.out.println(a.compareStruct(e));
+
+        WindowStart test = new WindowStart();
     }
 }
