@@ -1,48 +1,58 @@
 import java.util.ArrayList;
 
 public class Arbre extends ARN {
-    private ElementsArbre tree;
+    private ArrayList<ElementsArbre> tree;
 
 
     public Arbre(){
-        this.tree = new ElementsArbre();
+        this.tree = new ArrayList<ElementsArbre>();
     }
 
-    public Arbre(ElementsArbre tree){
+    public Arbre(ArrayList<ElementsArbre> tree){
         this.tree = tree;
+    }
+
+    private void add(ElementsArbre elem) {
+        this.tree.add(elem);
+    }
+
+    private String getComposant(int i) {
+        return this.tree.get(i).composant;
+    }
+
+    private String getValeur(int i) {
+        return this.tree.get(i).valeur;
+    }
+
+    private int size() {
+        return this.tree.size();
     }
 
     public static Arbre creationArbre(ARN arn){
         Arbre newTree = new Arbre();
-        ElementsArbre pere = new ElementsArbre();
         String struct = arn.returnStruct();
         String [] structure = struct.split("");
         String seq = arn.returnSeq();
         String [] sequence = seq.split("");
         for(int i = 0; i < struct.length(); i++){
-            if(structure[i] == "("){
-                ArrayList<ElementsArbre> suivant = new ArrayList<ElementsArbre>();
-                ElementsArbre elem = new ElementsArbre("", pere, suivant);
-                pere.suivant.add(elem);
-                pere = elem;
+            System.out.println(structure[i].toString());
+            System.out.println("(");
+            if(structure[i].equals("(")){
                 String value = sequence[i];
-                ElementsArbre fils = new ElementsArbre(value, pere, null);
-                elem.suivant.add(fils);
-            } else if(structure[i] == ")"){
+                ElementsArbre element = new ElementsArbre(value, "DN");
+                newTree.add(element);
+            } else if(structure[i].equals(")")){
                 String value = sequence[i];
-                ElementsArbre fils = new ElementsArbre(value, pere, null);
-                pere.suivant.add(fils);
-                pere = pere.precedent;
+                ElementsArbre element = new ElementsArbre(value, "FN");
+                newTree.add(element);
             } else {
                 String value = sequence[i];
-                ElementsArbre fils = new ElementsArbre(value, pere, null);
-                pere.suivant.add(fils);
+                ElementsArbre element = new ElementsArbre(value, "F");
+                newTree.add(element);
             }
         }
-        newTree = pere;
         return newTree;
     }
-
 
 
 
@@ -51,6 +61,12 @@ public class Arbre extends ARN {
         ARN c = new ARN("AUGGGC","--(())");
         //String [] parts = test.split( "" );
         Arbre arbreTest = creationArbre(c);
-        System.out.println(arbreTest);
+        for(int i = 0; i < arbreTest.size(); i++){
+            System.out.println("composant : " + arbreTest.getComposant(i));
+            System.out.println("valeur :" + arbreTest.getValeur(i));
+        }
     }
+
+
+
 }

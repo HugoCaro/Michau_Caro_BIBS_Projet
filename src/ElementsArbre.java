@@ -1,26 +1,20 @@
 import java.util.ArrayList;
 
 public class ElementsArbre extends Arbre {
-    private String valeur;
-    public ElementsArbre precedent;
-    public ArrayList<ElementsArbre> suivant;
+    public String valeur;
+    public String composant; //DN pour début noeud FN pour fin noeud et F pour Feuille
 
     public ElementsArbre(){
         this.valeur = "";
-        this.precedent = null;
-        this.suivant = null;
+        this.composant = "";
 
     }
 
-    public ElementsArbre(String valeur, ElementsArbre precedent, ArrayList<ElementsArbre> suivant){
+    public ElementsArbre(String valeur, String composant){
         this.valeur = valeur;
-        this.precedent = precedent;
-        this.suivant = suivant;
+        this.composant = composant;
     }
 
-    private void add(ElementsArbre ele) {
-        this.suivant.add(ele);
-    }
 
 
 

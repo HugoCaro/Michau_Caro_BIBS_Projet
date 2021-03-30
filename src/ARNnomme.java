@@ -6,7 +6,7 @@ public class ARNnomme extends ARN{
         this.nom=nom;
         this.arn=arn;
     }
-    public String returnStruct() { return this.struct; }
+    public String returnStruct() { return this.arn.struct; }
     public String returnSeq() { return this.arn.seq; }
     public String returnNom(){
         return this.nom;

@@ -1,6 +1,6 @@
 public class ARN {
-    private String seq;
-    private String struct;
+    protected String seq;
+    protected String struct;
 
     public ARN(){
         this.seq="";
