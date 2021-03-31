@@ -7,8 +7,6 @@ public class WindowStart {
 
     private JFrame frameStart = new JFrame ("Saisie ARN");
 
-    private JButton buttonAdd = new JButton("Ajout de la séquence");
-
     private JPanel panNom = new JPanel();
     public JTextArea txtNom= new JTextArea("Entrer un identifiant de \nla séquence ARN");
     private JLabel labNom= new JLabel("ID : ");
@@ -20,6 +18,10 @@ public class WindowStart {
     private JPanel panStrc= new JPanel();
     public JTextArea txtStrc= new JTextArea("Entrer une structure ARN");
     private JLabel labStrc= new JLabel("Strcuture : ");
+
+    private JButton buttonAdd = new JButton("Ajout de la séquence");
+
+    private JLabel nbARN = new JLabel("Nombre de séquence saisi : 0/10");
 
     public WindowStart() {
 
@@ -61,14 +63,26 @@ public class WindowStart {
             }
         });
 
-        this.frameStart.setLayout(new GridLayout(4,1));
+        this.nbARN.setHorizontalAlignment(SwingConstants.CENTER);
+
+        this.frameStart.setLayout(new GridLayout(5,1));
         this.frameStart.add(this.panNom);
         this.frameStart.add(this.panARN);
         this.frameStart.add(this.panStrc);
         this.frameStart.add(this.buttonAdd);
+        this.frameStart.add(this.nbARN);
         this.frameStart.setSize(400,294);
         this.frameStart.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.frameStart.setVisible(true);
+    }
+
+    public void updateNbARN(int x){
+        if (x <= 10) {
+            this.nbARN.setText("Nombre de séquence saisi : " + x + "/10");
+        }
+        else{
+            System.out.println("Taille maximale dépassée");
+        }
     }
 
 }
