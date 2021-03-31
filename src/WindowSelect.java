@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class WindowSelect {
-    public ListeARNnomme Listetotale=new ListeARNnomme(5);
+    public static ListeARNnomme listetotale;
     private JFrame frameSelect = new JFrame ("ARN saisies");
     private JPanel panelARNnom= new JPanel();
     private JLabel labARNnom = new JLabel("Liste des ARN saisies");
@@ -31,7 +31,6 @@ public class WindowSelect {
     private JCheckBox boxarn25 = new JCheckBox();
 
     public WindowSelect(){
-
         this.arn1.setHorizontalAlignment(SwingConstants.CENTER);
         this.arn2.setHorizontalAlignment(SwingConstants.CENTER);
         this.arn3.setHorizontalAlignment(SwingConstants.CENTER);
@@ -48,12 +47,18 @@ public class WindowSelect {
 
         this.select1.setLayout(new GridLayout(6,1));
         this.select2.setBorder(BorderFactory.createLineBorder(Color.lightGray, 1));
+        this.labselect1.setHorizontalAlignment(SwingConstants.CENTER);
         this.select1.add(labselect1);
         this.groupSelect1.add(this.boxarn11);
         this.groupSelect1.add(this.boxarn12);
         this.groupSelect1.add(this.boxarn13);
         this.groupSelect1.add(this.boxarn14);
         this.groupSelect1.add(this.boxarn15);
+        this.boxarn11.setHorizontalAlignment(SwingConstants.CENTER);
+        this.boxarn12.setHorizontalAlignment(SwingConstants.CENTER);
+        this.boxarn13.setHorizontalAlignment(SwingConstants.CENTER);
+        this.boxarn14.setHorizontalAlignment(SwingConstants.CENTER);
+        this.boxarn15.setHorizontalAlignment(SwingConstants.CENTER);
         this.select1.add(boxarn11);
         this.select1.add(boxarn12);
         this.select1.add(boxarn13);
@@ -62,12 +67,18 @@ public class WindowSelect {
 
         this.select2.setLayout(new GridLayout(6,1));
         this.select2.setBorder(BorderFactory.createLineBorder(Color.lightGray, 1));
+        this.labselect2.setHorizontalAlignment(SwingConstants.CENTER);
         this.select2.add(labselect2);
         this.groupSelect2.add(this.boxarn21);
         this.groupSelect2.add(this.boxarn22);
         this.groupSelect2.add(this.boxarn23);
         this.groupSelect2.add(this.boxarn24);
         this.groupSelect2.add(this.boxarn25);
+        this.boxarn21.setHorizontalAlignment(SwingConstants.CENTER);
+        this.boxarn22.setHorizontalAlignment(SwingConstants.CENTER);
+        this.boxarn23.setHorizontalAlignment(SwingConstants.CENTER);
+        this.boxarn24.setHorizontalAlignment(SwingConstants.CENTER);
+        this.boxarn25.setHorizontalAlignment(SwingConstants.CENTER);
         this.select2.add(boxarn21);
         this.select2.add(boxarn22);
         this.select2.add(boxarn23);

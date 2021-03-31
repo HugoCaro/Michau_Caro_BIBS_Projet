@@ -21,7 +21,7 @@ public class WindowStart {
 
     private JButton buttonAdd = new JButton("Ajout de la séquence");
 
-    private JLabel nbARN = new JLabel("Nombre de séquence saisi : 0/10");
+    private JLabel nbARN = new JLabel("Nombre de séquence saisi : 0/5");
 
     public WindowStart() {
 
@@ -57,9 +57,8 @@ public class WindowStart {
                 System.out.println(strc);
                 ARN a = new ARN(seq,strc);
                 ARNnomme test = new ARNnomme(a,nomARN);
-                System.out.println(test.returnStruct());
-                System.out.println(test.returnSeq());
-                System.out.println(test.returnNom());
+                WindowSelect.listetotale.add(test);
+
             }
         });
 
@@ -77,7 +76,7 @@ public class WindowStart {
     }
 
     public void updateNbARN(int x){
-        if (x <= 10) {
+        if (x <= 5) {
             this.nbARN.setText("Nombre de séquence saisi : " + x + "/5");
         }
         else{

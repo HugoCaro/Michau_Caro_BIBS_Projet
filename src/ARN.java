@@ -30,7 +30,6 @@ public class ARN {
     public Boolean compareSeq(ARN b){
         return this.seq.equals(b.seq) && this.struct.equals(b.struct);
     }
-
     public static void main(String[] args) {
         ARN a = new ARN("AUGGGC","--((--");
         ARN b = new ARN("AUGGGC","--((--");
@@ -43,6 +42,7 @@ public class ARN {
         System.out.println(a.compareStruct(e));
 
         WindowStart test = new WindowStart();
+        ListeARNnomme l=new ListeARNnomme(5);
         WindowSelect test2= new WindowSelect();
     }
 }
