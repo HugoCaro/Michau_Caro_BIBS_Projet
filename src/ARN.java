@@ -56,15 +56,17 @@ public class ARN {
         int taillemax=0;
         String c="";
         for(int i = 0; i < b.struct.length() ; i++) {
-            for (int j = i; j < b.struct.length(); j++) {
+            for (int j = i; j < b.struct.length()+1; j++) {
                 c = b.struct.substring(i, j);
-                if (((j - i+1) > taillemax) && this.struct.indexOf(c) != -1) {
-                    taillemax = j - i+1;
-                    debut = this.struct.indexOf(c);
-                    fin = this.struct.indexOf(c) + taillemax;
+                if (((j-i) > taillemax) && this.struct.indexOf(c) != -1) {
+                    taillemax = j-i;
+                    debut = i;
+                    fin = j;
                 }
             }
         }
+        System.out.println(debut);
+        System.out.println(fin-1);
         return b.struct.substring(debut,fin);
     }
 
@@ -120,7 +122,7 @@ public class ARN {
         WindowStart test = new WindowStart();*/
 
         ARN a= new ARN ("AAAAAAAAAA","----(-----");
-        ARN b= new ARN ("AAAAAAAAA","---((----");
+        ARN b= new ARN ("AAAAAAAA","(--(----");
         System.out.println(a.bristlecone(b));
         System.out.println(b.bristlecone(a));
 
