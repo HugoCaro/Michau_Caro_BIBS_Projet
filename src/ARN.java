@@ -41,9 +41,9 @@ public class ARN {
         System.out.println(a.compareStruct(d));
         System.out.println(a.compareStruct(e));
 
-        WindowStart test = new WindowStart();
-        ListeARNnomme l=new ListeARNnomme(5);
         WindowSelect test2= new WindowSelect();
+        WindowStart test = new WindowStart();
+
     }
 
 }

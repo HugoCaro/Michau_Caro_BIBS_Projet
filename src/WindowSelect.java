@@ -2,7 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class WindowSelect {
+
     public static ListeARNnomme listetotale;
+
     private JFrame frameSelect = new JFrame ("ARN saisies");
     private JPanel panelARNnom= new JPanel();
     private JLabel labARNnom = new JLabel("Liste des ARN saisies");
@@ -31,6 +33,9 @@ public class WindowSelect {
     private JCheckBox boxarn25 = new JCheckBox();
 
     public WindowSelect(){
+
+        ListeARNnomme listetotale=new ListeARNnomme(5);
+
         this.arn1.setHorizontalAlignment(SwingConstants.CENTER);
         this.arn2.setHorizontalAlignment(SwingConstants.CENTER);
         this.arn3.setHorizontalAlignment(SwingConstants.CENTER);
@@ -92,4 +97,23 @@ public class WindowSelect {
         this.frameSelect.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.frameSelect.setVisible(true);
     }
+
+    public void updateLabel(){
+        if (listetotale.emplacement==1) {
+            this.arn1.setText(listetotale.listeARN.get(0).returnNom());
+        }
+        if (listetotale.emplacement==1) {
+            this.arn2.setText(listetotale.listeARN.get(1).returnNom());
+        }
+        if (listetotale.emplacement==1) {
+            this.arn3.setText(listetotale.listeARN.get(2).returnNom());
+        }
+        if (listetotale.emplacement==1) {
+            this.arn4.setText(listetotale.listeARN.get(3).returnNom());
+        }
+        if (listetotale.emplacement==1){
+            this.arn5.setText(listetotale.listeARN.get(4).returnNom());
+        }
+    }
+
 }

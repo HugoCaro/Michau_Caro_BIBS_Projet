@@ -7,7 +7,7 @@ public class ListeARNnomme {
     int emplacement;    //emplacement auquel sera ajouté le prochain ARN
 
     public ListeARNnomme(int taillemax){
-        this.listeARN = new ArrayList<>();
+        this.listeARN = new ArrayList<ARNnomme>();
         this.emplacement = 0;
         this.taillemax = taillemax;
     }

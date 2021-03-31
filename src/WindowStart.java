@@ -57,6 +57,7 @@ public class WindowStart {
                 System.out.println(strc);
                 ARN a = new ARN(seq,strc);
                 ARNnomme test = new ARNnomme(a,nomARN);
+                System.out.println(WindowSelect.listetotale.taillemax);
                 WindowSelect.listetotale.add(test);
 
             }
