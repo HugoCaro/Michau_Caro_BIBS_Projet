@@ -75,5 +75,4 @@ public class WindowStart {
         this.frameStart.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.frameStart.setVisible(true);
     }
-
 }
