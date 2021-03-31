@@ -54,6 +54,26 @@ public class Arbre extends ARN {
         return newTree;
     }
 
+    public static ARN creationARN(Arbre a){
+        String structure = "";
+        String sequence = "";
+        for(int i = 0; i < a.size(); i++){
+            if(a.getComposant(i).equals("DN")){
+                structure += "(";
+            } else if(a.getComposant(i).equals("FN")){
+                structure += ")";
+            } else {
+                structure += "-";
+            }
+            sequence += a.getValeur(i);
+
+        }
+        ARN arn = new ARN(sequence, structure);
+        return arn;
+    }
+
+
+
 
 
     public static void main(String[] args) {
@@ -61,10 +81,13 @@ public class Arbre extends ARN {
         ARN c = new ARN("AUGGGC","--(())");
         //String [] parts = test.split( "" );
         Arbre arbreTest = creationArbre(c);
-        for(int i = 0; i < arbreTest.size(); i++){
+        /*for(int i = 0; i < arbreTest.size(); i++){
             System.out.println("composant : " + arbreTest.getComposant(i));
             System.out.println("valeur :" + arbreTest.getValeur(i));
-        }
+        }*/
+        /*ARN b = creationARN(arbreTest);
+        System.out.println(b.seq);
+        System.out.println(b.struct);*/
     }
 
 
