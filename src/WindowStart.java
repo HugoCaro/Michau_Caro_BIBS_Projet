@@ -18,7 +18,7 @@ public class WindowStart {
     public JTextArea txtARN2= new JTextArea("Entrer la 2ème \nséquence ARN");
 
     private JPanel panStrc= new JPanel();
-    private JLabel labStrc= new JLabel("Strcuture : ");
+    private JLabel labStrc= new JLabel("Structure : ");
     public JTextArea txtStrc= new JTextArea("Entrer la 1ère \nstructure ARN");
     public JTextArea txtStrc2= new JTextArea("Entrer la 2ème \nstructure ARN");
 

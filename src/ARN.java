@@ -28,6 +28,25 @@ public class ARN {
         System.out.println("test");
     }
 
+    public static String enlevePointEtMetEnMajuscule(String seqFausse){
+        String res = seqFausse.replace(".", "");
+        return res.toUpperCase();
+    }
+
+    public static String transformeEnBonneStructure(String structFausse){
+        String res = structFausse.replace(".", "");
+        res = res.replace(":", "-");
+        res = res.replace(",", "-");
+        res = res.replace("<", "(");
+        res = res.replace(">", ")");
+        res = res.replace("[", "(");
+        res = res.replace("]", ")");
+        res = res.replace("{", "(");
+        res = res.replace("}", ")");
+        res = res.replace("_", "-");
+        return res;
+    }
+
     public Boolean compareStruct(ARN b){
         return this.struct.equals(b.struct);
     }
@@ -35,7 +54,13 @@ public class ARN {
         return this.seq.equals(b.seq) && this.struct.equals(b.struct);
     }
     public static void main(String[] args) {
-        ARN a = new ARN("AUGGGC","--((--");
+        String test1 = "GgagauaU.A.GCucAgU...GGU...AgaGCg.u.cgGaC.UuaaAAuCcg.aag........................g...cgcg.GGU.UCg.Aa..UCCcg.c.uaucucC.a";
+        String test2 = enlevePointEtMetEnMajuscule(test1);
+        System.out.println(test2);
+        String test3 = "(((((((,.,.<<<<___...___..._>>>>,.<.<<<<_.______>>>>.>,,........................,...,<<<.<<_.___.__.._>>>>.>.))))))).:";
+        String test4 = transformeEnBonneStructure(test3);
+        System.out.println(test4);
+        /*ARN a = new ARN("AUGGGC","--((--");
         ARN b = new ARN("AUGGGC","--((--");
         ARN c = new ARN("AUGGGC","--(())");
         ARN d = new ARN("AUOOGC","--((--");
@@ -45,7 +70,7 @@ public class ARN {
         System.out.println(a.compareStruct(d));
         System.out.println(a.compareStruct(e));
 
-        WindowStart test = new WindowStart();
+        WindowStart test = new WindowStart();*/
 
     }
 
