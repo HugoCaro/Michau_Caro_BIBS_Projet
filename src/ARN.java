@@ -12,7 +12,7 @@ public class ARN {
             this.struct = struct;
         }
         else{
-            System.out.println("gros nul");
+            System.out.println("Séquence et structure de tailles différentes");
         }
     }
 
@@ -22,6 +22,10 @@ public class ARN {
 
     public String returnSeq(){
         return this.seq;
+    }
+
+    public void test(){
+        System.out.println("test");
     }
 
     public Boolean compareStruct(ARN b){
