@@ -35,22 +35,19 @@ public class WindowStart {
         this.panTitre.add(this.labseq1);
         this.panTitre.add(this.labseq2);
 
-        txtARN = this.txtARN;
-        txtARN2 = this.txtARN2;
         this.labARN.setHorizontalAlignment(SwingConstants.CENTER);
         this.panARN.setLayout(new GridLayout(1,3));
         this.panARN.add(this.labARN);
-        this.panARN.add(txtARN);
-        this.panARN.add(txtARN2);
+        this.panARN.add(this.txtARN);
+        this.panARN.add(this.txtARN2);
         panARN.setBorder(BorderFactory.createLineBorder(Color.lightGray, 1));
 
-        txtStrc = this.txtStrc;
-        txtStrc2 = this.txtStrc2;
+
         this.labStrc.setHorizontalAlignment(SwingConstants.CENTER);
         this.panStrc.setLayout(new GridLayout(1,2));
         this.panStrc.add(this.labStrc);
-        this.panStrc.add(txtStrc);
-        this.panStrc.add(txtStrc2);
+        this.panStrc.add(this.txtStrc);
+        this.panStrc.add(this.txtStrc2);
         panStrc.setBorder(BorderFactory.createLineBorder(Color.lightGray, 1));
 
         this.buttonAdd.addActionListener(new ActionListener() {
@@ -58,10 +55,14 @@ public class WindowStart {
             public void actionPerformed(ActionEvent actionEvent) {
                 String seq = txtARN.getText().toUpperCase() ;
                 String strc = txtStrc.getText().toUpperCase() ;
+                String seq2 = txtARN2.getText().toUpperCase() ;
+                String strc2 = txtStrc2.getText().toUpperCase() ;
 
                 System.out.println(seq);
                 System.out.println(strc);
+
                 ARN a = new ARN(seq,strc);
+                ARN b = new ARN(seq2,strc2);
             }
         });
 
