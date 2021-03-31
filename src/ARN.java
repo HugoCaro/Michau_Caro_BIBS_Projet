@@ -1,3 +1,9 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+
 public class ARN {
     protected String seq;
     protected String struct;
@@ -50,13 +56,39 @@ public class ARN {
     public Boolean compareSeq(ARN b){
         return this.seq.equals(b.seq) && this.struct.equals(b.struct);
     }
-    public static void main(String[] args) {
-        String test1 = "GgagauaU.A.GCucAgU...GGU...AgaGCg.u.cgGaC.UuaaAAuCcg.aag........................g...cgcg.GGU.UCg.Aa..UCCcg.c.uaucucC.a";
+
+    //méthode trouvée sur internet
+    public static ARN lireFichier(String nomFichier) throws IOException{
+        BufferedReader in = new BufferedReader(new FileReader(nomFichier));
+        ArrayList<String> tableauLines = new ArrayList<String>();
+        String line;
+        int cpt = 0;
+        while ((line = in.readLine()) != null)
+        {
+            line = line.replace(" ", "");
+            tableauLines.add(line);
+            cpt++;
+            // Afficher le contenu du fichier
+            System.out.println (line);
+        }
+        in.close();
+        String struct = tableauLines.get(cpt-3).replace("#=GCSS_cons", "");
+        struct = transformeEnBonneStructure(struct);
+        String seq = tableauLines.get(cpt-2).replace("#=GCRF", "");
+        seq = enlevePointEtMetEnMajuscule(seq);
+        return new ARN(seq, struct);
+    }
+
+    public static void main(String[] args) throws IOException {
+        /*String test1 = "GgagauaU.A.GCucAgU...GGU...AgaGCg.u.cgGaC.UuaaAAuCcg.aag........................g...cgcg.GGU.UCg.Aa..UCCcg.c.uaucucC.a";
         String test2 = enlevePointEtMetEnMajuscule(test1);
         System.out.println(test2);
         String test3 = "(((((((,.,.<<<<___...___..._>>>>,.<.<<<<_.______>>>>.>,,........................,...,<<<.<<_.___.__.._>>>>.>.))))))).:";
         String test4 = transformeEnBonneStructure(test3);
-        System.out.println(test4);
+        System.out.println(test4);*/
+        ARN test = lireFichier("RF00005.stockholm.txt");
+        System.out.println("Structure : " + test.struct + ", taille : " + test.struct.length());
+        System.out.println("Sequence : " + test.seq + ", taille : " + test.seq.length());
         /*ARN a = new ARN("AUGGGC","--((--");
         ARN b = new ARN("AUGGGC","--((--");
         ARN c = new ARN("AUGGGC","--(())");
