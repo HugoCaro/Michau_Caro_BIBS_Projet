@@ -43,5 +43,6 @@ public class ARN {
         System.out.println(a.compareStruct(e));
 
         WindowStart test = new WindowStart();
+        WindowSelect test2= new WindowSelect();
     }
 }

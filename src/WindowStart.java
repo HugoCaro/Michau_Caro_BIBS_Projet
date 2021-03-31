@@ -78,7 +78,7 @@ public class WindowStart {
 
     public void updateNbARN(int x){
         if (x <= 10) {
-            this.nbARN.setText("Nombre de séquence saisi : " + x + "/10");
+            this.nbARN.setText("Nombre de séquence saisi : " + x + "/5");
         }
         else{
             System.out.println("Taille maximale dépassée");
