@@ -24,9 +24,6 @@ public class ARN {
         return this.seq;
     }
 
-    public void test(){
-        System.out.println("test");
-    }
 
     public static String enlevePointEtMetEnMajuscule(String seqFausse){
         String res = seqFausse.replace(".", "");
