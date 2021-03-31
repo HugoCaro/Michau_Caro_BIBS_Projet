@@ -83,5 +83,4 @@ public class WindowStart {
             System.out.println("Taille maximale dépassée");
         }
     }
-
 }

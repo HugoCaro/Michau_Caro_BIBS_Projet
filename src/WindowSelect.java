@@ -92,5 +92,4 @@ public class WindowSelect {
         this.frameSelect.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.frameSelect.setVisible(true);
     }
-
 }
