@@ -50,6 +50,24 @@ public class ARN {
         return res;
     }
 
+    public String bristlecone(ARN b){ //plus grand arbre commun
+        int debut=0;
+        int fin = 0;
+        int taillemax=0;
+        String c="";
+        for(int i = 0; i < b.struct.length() ; i++) {
+            for (int j = i; j < b.struct.length(); j++) {
+                c = b.struct.substring(i, j);
+                if (((j - i+1) > taillemax) && this.struct.indexOf(c) != -1) {
+                    taillemax = j - i+1;
+                    debut = this.struct.indexOf(c);
+                    fin = this.struct.indexOf(c) + taillemax;
+                }
+            }
+        }
+        return b.struct.substring(debut,fin);
+    }
+
     public Boolean compareStruct(ARN b){
         return this.struct.equals(b.struct);
     }
@@ -100,6 +118,11 @@ public class ARN {
         System.out.println(a.compareStruct(e));
 
         WindowStart test = new WindowStart();*/
+
+        ARN a= new ARN ("AAAAAAAAAA","----(-----");
+        ARN b= new ARN ("AAAAAAAAA","---((----");
+        System.out.println(a.bristlecone(b));
+        System.out.println(b.bristlecone(a));
 
     }
 
