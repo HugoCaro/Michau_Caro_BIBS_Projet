@@ -50,35 +50,15 @@ public class ARN {
         return res;
     }
 
-    public int openNode (){
-        int c=0;
-        for(int i = 0; i < this.struct.length() ; i++) {
-            if (this.struct.substring(i, i + 1).equals("(")) {
-                c+=1;
-            }
-            if (this.struct.substring(i, i + 1).equals(")")) {
-                c+=-1;
-            }
-            if (c<0){
-                return c;
-            }
-        }
-        return c;
-    }
-
     public String bristlecone(ARN b){ //plus grand arbre commun
         int debut=0;
         int fin = 0;
         int taillemax=0;
         String c="";
-        String s="";
-
         for(int i = 0; i < b.struct.length() ; i++) {
             for (int j = i; j < b.struct.length()+1; j++) {
                 c = b.struct.substring(i, j);
-                s = b.seq.substring(i, j);
-                ARN arnt= new ARN(s,c);
-                if (((j-i) > taillemax) && this.struct.indexOf(c) != -1 && arnt.openNode()==0) {
+                if (((j-i) > taillemax) && this.struct.indexOf(c) != -1) {
                     taillemax = j-i;
                     debut = i;
                     fin = j;
@@ -126,12 +106,9 @@ public class ARN {
         String test3 = "(((((((,.,.<<<<___...___..._>>>>,.<.<<<<_.______>>>>.>,,........................,...,<<<.<<_.___.__.._>>>>.>.))))))).:";
         String test4 = transformeEnBonneStructure(test3);
         System.out.println(test4);*/
-        /*ARN test = lireFichier("RF00005.stockholm.txt");
-        ARN test2 = lireFichier("RF00004.stockholm.txt");
+        ARN test = lireFichier("RF00005.stockholm.txt");
         System.out.println("Structure : " + test.struct + ", taille : " + test.struct.length());
         System.out.println("Sequence : " + test.seq + ", taille : " + test.seq.length());
-        System.out.println("Structure : " + test2.struct + ", taille : " + test2.struct.length());
-        System.out.println("Sequence : " + test2.seq + ", taille : " + test2.seq.length());*/
         /*ARN a = new ARN("AUGGGC","--((--");
         ARN b = new ARN("AUGGGC","--((--");
         ARN c = new ARN("AUGGGC","--(())");
@@ -140,17 +117,14 @@ public class ARN {
         System.out.println(a.compareStruct(b));
         System.out.println(a.compareStruct(c));
         System.out.println(a.compareStruct(d));
-        System.out.println(a.compareStruct(e));*/
+        System.out.println(a.compareStruct(e));
 
-        /*WindowStart test = new WindowStart();*/
+        WindowStart test = new WindowStart();*/
 
-        /*ARN a= new ARN ("AAAAAAAAAA","--(--(----");
+        ARN a= new ARN ("AAAAAAAAAA","----(-----");
         ARN b= new ARN ("AAAAAAAA","(--(----");
         System.out.println(a.bristlecone(b));
         System.out.println(b.bristlecone(a));
-
-        System.out.println(test.bristlecone(test2));
-        System.out.println(test2.bristlecone(test));*/
 
     }
 
