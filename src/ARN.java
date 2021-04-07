@@ -126,12 +126,12 @@ public class ARN {
         String test3 = "(((((((,.,.<<<<___...___..._>>>>,.<.<<<<_.______>>>>.>,,........................,...,<<<.<<_.___.__.._>>>>.>.))))))).:";
         String test4 = transformeEnBonneStructure(test3);
         System.out.println(test4);*/
-        ARN test = lireFichier("RF00005.stockholm.txt");
+        /*ARN test = lireFichier("RF00005.stockholm.txt");
         ARN test2 = lireFichier("RF00004.stockholm.txt");
         System.out.println("Structure : " + test.struct + ", taille : " + test.struct.length());
         System.out.println("Sequence : " + test.seq + ", taille : " + test.seq.length());
         System.out.println("Structure : " + test2.struct + ", taille : " + test2.struct.length());
-        System.out.println("Sequence : " + test2.seq + ", taille : " + test2.seq.length());
+        System.out.println("Sequence : " + test2.seq + ", taille : " + test2.seq.length());*/
         /*ARN a = new ARN("AUGGGC","--((--");
         ARN b = new ARN("AUGGGC","--((--");
         ARN c = new ARN("AUGGGC","--(())");
@@ -140,17 +140,17 @@ public class ARN {
         System.out.println(a.compareStruct(b));
         System.out.println(a.compareStruct(c));
         System.out.println(a.compareStruct(d));
-        System.out.println(a.compareStruct(e));
+        System.out.println(a.compareStruct(e));*/
 
-        WindowStart test = new WindowStart();*/
+        /*WindowStart test = new WindowStart();*/
 
-        ARN a= new ARN ("AAAAAAAAAA","--(--(----");
+        /*ARN a= new ARN ("AAAAAAAAAA","--(--(----");
         ARN b= new ARN ("AAAAAAAA","(--(----");
         System.out.println(a.bristlecone(b));
         System.out.println(b.bristlecone(a));
 
         System.out.println(test.bristlecone(test2));
-        System.out.println(test2.bristlecone(test));
+        System.out.println(test2.bristlecone(test));*/
 
     }
 

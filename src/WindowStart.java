@@ -22,7 +22,13 @@ public class WindowStart {
     public JTextArea txtStrc= new JTextArea("Entrer la 1ère \nstructure ARN");
     public JTextArea txtStrc2= new JTextArea("Entrer la 2ème \nstructure ARN");
 
+    private JPanel panOpenfile = new JPanel();
+    private JTextField txtpath1= new JTextField("saisir le path de l'arn1");
+    private JTextField txtpath2= new JTextField("saisir le path de l'arn2");
+
+
     private JButton buttonAdd = new JButton("Lancer l'analyse");
+
 
     public WindowStart() {
 
@@ -42,13 +48,17 @@ public class WindowStart {
         this.panARN.add(this.txtARN2);
         panARN.setBorder(BorderFactory.createLineBorder(Color.lightGray, 1));
 
-
         this.labStrc.setHorizontalAlignment(SwingConstants.CENTER);
         this.panStrc.setLayout(new GridLayout(1,2));
         this.panStrc.add(this.labStrc);
         this.panStrc.add(this.txtStrc);
         this.panStrc.add(this.txtStrc2);
         panStrc.setBorder(BorderFactory.createLineBorder(Color.lightGray, 1));
+
+        this.panOpenfile.setLayout(new GridLayout(1,2));
+        this.panOpenfile.add(this.txtpath1);
+        this.panOpenfile.add(this.txtpath2);
+        this.panOpenfile.setBorder(BorderFactory.createLineBorder(Color.lightGray, 1));
 
         this.buttonAdd.addActionListener(new ActionListener() {
             @Override

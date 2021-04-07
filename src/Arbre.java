@@ -81,13 +81,13 @@ public class Arbre extends ARN {
         ARN c = new ARN("AUGGGC","--(())");
         //String [] parts = test.split( "" );
         Arbre arbreTest = creationArbre(c);
-        /*for(int i = 0; i < arbreTest.size(); i++){
+        for(int i = 0; i < arbreTest.size(); i++){
             System.out.println("composant : " + arbreTest.getComposant(i));
             System.out.println("valeur :" + arbreTest.getValeur(i));
-        }*/
-        /*ARN b = creationARN(arbreTest);
+        }
+        ARN b = creationARN(arbreTest);
         System.out.println(b.seq);
-        System.out.println(b.struct);*/
+        System.out.println(b.struct);
     }
 
 
