@@ -20,7 +20,7 @@ public class Arbre extends ARN {
         return this.tree.get(i);
     }
 
-    private void add(Arbre a) {
+    private void addArbre(Arbre a) {
         for (int i = 0; i < a.size(); i++) {
             this.tree.add(a.get(i));
         }
@@ -47,8 +47,6 @@ public class Arbre extends ARN {
         String seq = arn.returnSeq();
         String [] sequence = seq.split("");
         for(int i = 0; i < struct.length(); i++){
-            System.out.println(structure[i].toString());
-            System.out.println("(");
             if(structure[i].equals("(")){
                 String value = sequence[i];
                 ElementsArbre element = new ElementsArbre(value, "DN");
@@ -91,7 +89,6 @@ public class Arbre extends ARN {
         String[] structure = struct.split("");
         String[] sequence = seq.split("");
         int cpt = 0;
-        //ArrayList<Integer> listeCptB = new ArrayList<Integer>();
         Arbre tree = new Arbre();
         for (int i = 0; i < taille; i++) {
             if (structure[i].equals("-")) {
@@ -131,17 +128,20 @@ public class Arbre extends ARN {
                     for (int x = 0; x < listeSousArbresA.size()-cpt; x++) {
                         listeSousArbres.add(listeSousArbresA.get(x));
                     }
-                    listeSousArbres.add(listeSousArbresA.get(listeSousArbres.size() - 1));
-                    for (int j = listeSousArbresA.size()-cpt; j < listeSousArbresA.size()-1; j++){
-                        if (j == listeSousArbresA.size() - 1){
+                    Arbre sousArbreDebug = listeSousArbresA.get(listeSousArbresA.size() - 1);
+                    listeSousArbres.add(sousArbreDebug);
+                    for (int j = listeSousArbresA.size()-cpt; j < listeSousArbresA.size(); j++){
+                        if (j == (listeSousArbresA.size() - 1) ){
                             Arbre treeTemp = listeSousArbresA.get(listeSousArbresA.size() - 2);
-                            treeTemp.add(tree);
-                            listeSousArbres.add(treeTemp);
+                            treeTemp.addArbre(tree);
+                            tree = treeTemp;
+                            listeSousArbres.remove(listeSousArbres.size()-1);
                         } else {
                             listeSousArbres.add(listeSousArbresA.get(j));
+
                         }
                     }
-                    tree = new Arbre();
+                    listeSousArbresA = listeSousArbres;
                     cpt--;
                 }
             }
@@ -157,9 +157,12 @@ public class Arbre extends ARN {
         Arbre sousArbre = new Arbre();
         for (int i = 0; i < listeSousArbresA.size(); i++){
             Arbre sousArbreA = listeSousArbresA.get(i);
+            ARN arnA = creationARN(sousArbreA);
             for (int j = 0; j < listeSousArbresB.size(); j++){
                 Arbre sousArbreB = listeSousArbresB.get(j);
-                if (sousArbreA == sousArbreB && sousArbreA.size() >= sousArbre.size()){
+                ARN arnB = creationARN(sousArbreB);
+                ARN arn = creationARN(sousArbre);
+                if (arnA.struct.equals(arnB.struct) && arnA.struct.length() >= arn.struct.length()){
                     sousArbre = sousArbreA;
                 }
             }
