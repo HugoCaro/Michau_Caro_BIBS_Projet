@@ -129,9 +129,9 @@ public class WindowStart {
                 }
 
                 System.out.println(a.seq);
-                System.out.println(a.getStruct());
+                System.out.println(a.returnStruct());
                 System.out.println(b.seq);
-                System.out.println(b.getStruct());
+                System.out.println(b.returnStruct());
             }
         });
 

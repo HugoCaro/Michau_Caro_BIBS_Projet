@@ -1,12 +1,11 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class ARN {
     protected String seq;
-    protected String struct;
+    private String struct;
 
     public ARN(){
         this.seq="";
@@ -78,7 +77,7 @@ public class ARN {
     }
 
     //méthode trouvée sur internet
-    public static ARN lireFichier(String nomFichier) throws IOException{
+    public ARN lireFichier(String nomFichier) throws IOException{
         BufferedReader in = new BufferedReader(new FileReader(nomFichier));
         ArrayList<String> tableauLines = new ArrayList<String>();
         String line;
@@ -105,11 +104,11 @@ public class ARN {
         System.out.println(test2);
         String test3 = "(((((((,.,.<<<<___...___..._>>>>,.<.<<<<_.______>>>>.>,,........................,...,<<<.<<_.___.__.._>>>>.>.))))))).:";
         String test4 = transformeEnBonneStructure(test3);
-        System.out.println(test4);*/
+        System.out.println(test4);
         ARN test = lireFichier("RF00005.stockholm.txt");
         System.out.println("Structure : " + test.struct + ", taille : " + test.struct.length());
         System.out.println("Sequence : " + test.seq + ", taille : " + test.seq.length());
-        /*ARN a = new ARN("AUGGGC","--((--");
+        ARN a = new ARN("AUGGGC","--((--");
         ARN b = new ARN("AUGGGC","--((--");
         ARN c = new ARN("AUGGGC","--(())");
         ARN d = new ARN("AUOOGC","--((--");
@@ -117,14 +116,14 @@ public class ARN {
         System.out.println(a.compareStruct(b));
         System.out.println(a.compareStruct(c));
         System.out.println(a.compareStruct(d));
-        System.out.println(a.compareStruct(e));
+        System.out.println(a.compareStruct(e));*/
 
-        WindowStart test = new WindowStart();*/
+        WindowStart test = new WindowStart();
 
-        ARN a= new ARN ("AAAAAAAAAA","----(-----");
+       /* ARN a= new ARN ("AAAAAAAAAA","----(-----");
         ARN b= new ARN ("AAAAAAAA","(--(----");
         System.out.println(a.bristlecone(b));
-        System.out.println(b.bristlecone(a));
+        System.out.println(b.bristlecone(a));*/
 
     }
 
