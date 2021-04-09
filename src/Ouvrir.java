@@ -30,14 +30,14 @@ public class Ouvrir extends JFrame implements ActionListener {
         if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
             String Firm = chooser.getSelectedFile().getAbsolutePath();
             this.setVisible(false);
-            System.out.println(Firm);
+            System.out.println(Firm);/*
             try {
                 ARN.lireFichier(Firm);
             } catch (FileNotFoundException ex) {
                 System.out.println(ex);
             } catch (IOException e) {
                 e.printStackTrace();
-            }
+            }*/
         }
     }
 }
