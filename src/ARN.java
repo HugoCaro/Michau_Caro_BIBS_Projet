@@ -108,6 +108,8 @@ public class ARN {
         System.out.println(test4);*/
         ARN test = lireFichier("RF00005.stockholm.txt");
         ARN test2 = lireFichier("RF00004.stockholm.txt");
+        System.out.println("affiche structure de test : " + test.struct + " et sa taille : " + test.struct.length());
+        System.out.println("affiche séquence de test : " + test.seq + " et sa taille : " + test.seq.length());
         Arbre testArbre = Arbre.comparateurArbre(test, test2);
         ARN arnFinal = Arbre.creationARN(testArbre);
         System.out.println(arnFinal.struct);

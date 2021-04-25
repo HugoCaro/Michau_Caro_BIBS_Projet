@@ -1,8 +1,13 @@
 import javax.swing.*;
+import javax.swing.text.DefaultCaret;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import javax.swing.JFileChooser;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class WindowStart {
 
@@ -10,6 +15,8 @@ public class WindowStart {
     public ARN b = new ARN();
 
     private JRadioButton buttonManuel= new JRadioButton();
+    private JButton open1 = new JButton("Selectionner le fichier 1"); //nouveau bouton open1
+    private JButton open2 = new JButton("Selectionner le fichier 2"); //nouveau bouton open2
     private JRadioButton buttonFichier= new JRadioButton();
     private ButtonGroup selecTraitement = new ButtonGroup();
 
@@ -38,16 +45,18 @@ public class WindowStart {
     private JPanel panFichier = new JPanel();
 
     private JPanel panfile = new JPanel();
-    private JLabel labfile= new JLabel("Séléction de fichier");
+    private JLabel labfile= new JLabel("Sélection de fichier");
     private JPanel panfile2 = new JPanel();
-    public JTextField txtpath1= new JTextField("saisir le path de l'arn1");
-    public JTextField txtpath2= new JTextField("saisir le path de l'arn2");
+    //public JTextField txtpath1= new JTextField("saisir le path de l'arn1");
+    public JTextField txtpath1= new JTextField("RF00004.stockholm.txt");
+    //public JTextField txtpath2= new JTextField("saisir le path de l'arn2");
+    public JTextField txtpath2= new JTextField("RF00004.stockholm.txt");
 
 
     private JButton buttonAdd = new JButton("Lancer l'analyse");
 
 
-    public WindowStart() {
+    public WindowStart() throws IOException {
 
         this.selecTraitement.add(this.buttonFichier);
         this.selecTraitement.add(this.buttonManuel);
@@ -105,6 +114,54 @@ public class WindowStart {
         this.panFichier.add(this.panfile, "CENTER");
         this.panFichier.add(this.buttonFichier,"EAST");
 
+
+        /////
+        // Sélection des fichiers 2
+        this.labfile.setHorizontalAlignment(SwingConstants.CENTER);
+
+        this.panfile2.setLayout(new GridLayout(1,2));
+        this.panfile2.add(this.txtpath1);
+        this.panfile2.add(this.txtpath2);
+        this.panfile2.setBorder(BorderFactory.createLineBorder(Color.lightGray, 1));
+
+        this.panfile.setLayout(new GridLayout(2,1));
+        this.panfile.add(this.labfile);
+        this.panfile.add(this.panfile2);
+
+        this.panFichier.add(this.open1, "CENTER");
+        this.panFichier.add(this.open2, "CENTER");
+        this.panFichier.add(this.buttonFichier.createToolTip(),"EAST");
+
+        this.open1.addActionListener(new ActionListener() {
+                                        @Override
+                                        public void actionPerformed(ActionEvent actionEvent) {
+                                            JFileChooser fileChooser = new JFileChooser();
+                                            if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+                                                File selectedFile = fileChooser.getSelectedFile();
+                                                System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+                                                String selectionne = selectedFile.getName();
+                                                txtpath1.setText(selectionne);
+                                                System.out.println("selection : " + selectionne);
+                                            }
+                                        }
+                                    });
+
+        this.open2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                JFileChooser fileChooser = new JFileChooser();
+                if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+                    File selectedFile = fileChooser.getSelectedFile();
+                    System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+                    String selectionne = selectedFile.getName();
+                    txtpath2.setText(selectionne);
+                    System.out.println("selection : " + selectionne);
+                }
+            }
+        });
+        /////
+
+
         this.buttonAdd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -128,10 +185,36 @@ public class WindowStart {
                 b = new ARN(seq2, strc2);
                 }
 
+                Arbre arbreComp = Arbre.comparateurArbre(a, b);
                 System.out.println(a.seq);
                 System.out.println(a.returnStruct());
                 System.out.println(b.seq);
                 System.out.println(b.returnStruct());
+                System.out.println(arbreComp);
+                ARN arnComp = Arbre.creationARN(arbreComp);
+                System.out.println("composant : " + arnComp.struct);
+                System.out.println("valeur :" + arnComp.seq);
+
+
+                JFrame fenetre = new JFrame();
+
+                fenetre.setTitle("Résultat comparaison");
+                //Définit sa taille : 400 pixels de large et 100 pixels de haut
+                fenetre.setSize(400, 100);
+                //Nous demandons maintenant à notre objet de se positionner au centre
+                fenetre.setLocationRelativeTo(null);
+                //Termine le processus lorsqu'on clique sur la croix rouge
+                fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                /*Label emptyLabel = new Label("Composant : " + arnComp.struct);
+                Label emptyLabel1 = new Label("Valeur : " + arnComp.seq);*/
+                fenetre.setLayout(new FlowLayout ());
+                TextArea textArea = new TextArea("Composant : " + arnComp.struct, 5, 40);
+                TextArea textArea1 = new TextArea("Valeur : " + arnComp.seq, 5, 40);
+                fenetre.add(textArea);
+                fenetre.add(textArea1);
+                //Et enfin, la rendre visible
+                fenetre.show();
+                fenetre.pack();
             }
         });
 
