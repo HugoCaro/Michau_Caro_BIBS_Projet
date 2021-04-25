@@ -135,7 +135,7 @@ public class WindowStart {
         this.open1.addActionListener(new ActionListener() {
                                         @Override
                                         public void actionPerformed(ActionEvent actionEvent) {
-                                            JFileChooser fileChooser = new JFileChooser();
+                                            JFileChooser fileChooser = new JFileChooser(new File("."));
                                             if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
                                                 File selectedFile = fileChooser.getSelectedFile();
                                                 System.out.println("Selected file: " + selectedFile.getAbsolutePath());
@@ -149,7 +149,7 @@ public class WindowStart {
         this.open2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                JFileChooser fileChooser = new JFileChooser();
+                JFileChooser fileChooser = new JFileChooser(new File("."));
                 if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
                     File selectedFile = fileChooser.getSelectedFile();
                     System.out.println("Selected file: " + selectedFile.getAbsolutePath());
@@ -177,7 +177,7 @@ public class WindowStart {
                     }
                 } else{
 
-                    String seq = txtARN.getText().toUpperCase();
+                String seq = txtARN.getText().toUpperCase();
                 String strc = txtStrc.getText().toUpperCase();
                 String seq2 = txtARN2.getText().toUpperCase();
                 String strc2 = txtStrc2.getText().toUpperCase();
@@ -205,8 +205,6 @@ public class WindowStart {
                 fenetre.setLocationRelativeTo(null);
                 //Termine le processus lorsqu'on clique sur la croix rouge
                 fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                /*Label emptyLabel = new Label("Composant : " + arnComp.struct);
-                Label emptyLabel1 = new Label("Valeur : " + arnComp.seq);*/
                 fenetre.setLayout(new FlowLayout ());
                 TextArea textArea = new TextArea("Composant : " + arnComp.struct, 5, 40);
                 TextArea textArea1 = new TextArea("Valeur : " + arnComp.seq, 5, 40);
@@ -223,7 +221,7 @@ public class WindowStart {
         this.frameStart.add(this.panFichier,"Center");
         this.frameStart.add(this.buttonAdd,"South");
 
-        this.frameStart.setSize(400,250);
+        this.frameStart.setSize(400,300);
         this.frameStart.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.frameStart.setVisible(true);
     }
