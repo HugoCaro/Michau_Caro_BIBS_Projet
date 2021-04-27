@@ -174,7 +174,7 @@ public class Arbre extends ARN {
 
 
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         String test = "Test";
         ARN c = new ARN("AUGGGC","--(())");
         //String [] parts = test.split( "" );
@@ -186,7 +186,7 @@ public class Arbre extends ARN {
         ARN b = creationARN(arbreTest);
         System.out.println(b.seq);
         System.out.println(b.struct);
-    }
+    }*/
 
 
 
